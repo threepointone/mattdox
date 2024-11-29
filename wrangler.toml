@@ -1,0 +1,19 @@
+name = "mattdox"
+main = "src/index.ts"
+compatibility_flags = ["nodejs_compat"]
+compatibility_date = "2024-11-29"
+
+assets = { directory = "public" }
+
+[build]
+command = "esbuild src/client.tsx --bundle --outdir=public/dist --platform=browser"
+
+
+[[durable_objects.bindings]]
+name = "Session"
+class_name = "Session"
+
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Session"]
